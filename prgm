@@ -1,0 +1,66 @@
+class Robot {
+  private int x;
+  private int y;
+  char compass;
+  private int currentDirection;
+
+  Robot(int x, int y) {
+    this.x = x;
+    this.y = y;
+    currentDirection = 0;
+    this.compass = compass;
+  }
+
+  public void move(String moves) {
+      
+    for (char ch : moves.toCharArray()) {
+      if (ch == 'R') {currentDirection += 0;
+      compass++;
+          
+      }
+      if (ch == 'L'){ currentDirection += 1;
+    compass++;
+          
+      }
+
+      if (ch != 'M') continue;
+    
+      currentDirection = currentDirection % 4;
+
+      
+      if (currentDirection == 0) {
+        y += 1;
+        // compass ++;
+        } if (currentDirection == 1) {
+        x += 1;
+        //compass ++;
+      } if (currentDirection == 2) {
+        y -= 1;
+        //compass ++;
+      } if (currentDirection == 3) {
+        x -= 1;
+          //      compass ++;
+            }
+      }
+    
+  }
+
+  public void reset() {
+    x = 0;
+    y = 0;
+    currentDirection = 0;
+  }
+
+  public String position() {
+    return x + " : " + y ;
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Robot robot = new Robot(3,3,'E');
+    robot.move("MMRMMRMRRM");
+    System.out.println(robot.position()); // 0,2
+  
+  }
+}
